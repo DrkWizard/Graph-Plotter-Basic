@@ -1,0 +1,38 @@
+"""
+By: Jagrit Aggarwal
+Student
+Thapar Institute of Engineering & Technology,
+Patiala-147001, Punjab, India.
+
+Demo of 'Graphing Calculator'
+"""
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+def plot():
+    x = np.linspace(-10,10,20) 
+    c=np.linspace(1, 1, 20)
+    e = 2.71828
+    e=[e]*20
+    sinwave=np.sin(x)
+    coswave=np.cos(x)
+    tanwave=np.tan(x)
+    n=int(input("Enter Number of equations:"))
+    if n>=2:
+        for i in range(0,n):
+            expression=input(("enter expression y(x{})=").format(i+1))
+            y=eval(expression,{"e":e,"x": x,"sinx": sinwave,"cosx":coswave,"tanx":tanwave,"c":c})
+            plt.plot(x,y,marker='o',label=("y(x{})").format(i+1))
+            plt.legend()
+        plt.grid()
+    else:
+        expression=input(("enter expression y(x)="))
+        y=eval(expression,{"e":e,"x": x,"sinx": sinwave,"cosx":coswave,"tanx":tanwave,"c":c})
+        plt.plot(x,y,label=("y(x)"))
+    plt.show()
+    
+    plot()
+    
